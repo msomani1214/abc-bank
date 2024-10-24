@@ -1,5 +1,6 @@
 package com.abc;
 
+import java.util.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -50,5 +51,22 @@ public class BankTest {
 
         assertEquals(170.0, bank.totalInterestPaid(), DOUBLE_DELTA);
     }
+    @Test
+        void testGetFirstCustomer_WhenCustomersIsNull() {
+                List<Customer> customers = new ArrayList<Customer>();
+
+            String result = customers.get(0).getName();
+
+            assertEquals("Error", result);
+        }
+
+    @Test
+        void testGetFirstCustomer_WhenCustomersIsNotNull() {
+            List<Customer> customers = new ArrayList<>();
+            customers.add(new Customer("John Doe"));
+             String result = customers.get(0).getName();
+
+            assertEquals("John Doe", result);
+        }
 
 }
